@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G Arts - Online Art Gallery</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
+  <!-- Google Analytics GA4 tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Replace with your GA4 Measurement ID
+    gtag('config', 'G-8ZS0QFJBQC');
+  </script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-12 text-center">
+    <h1 class="text-4xl font-bold">Welcome to G Arts</h1>
+    <p class="mt-2 text-lg">Explore and own timeless artwork</p>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="max-w-6xl mx-auto py-10 px-6">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Featured Artworks</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Artwork Card -->
+      <div class="bg-white rounded-xl shadow p-4 text-center">
+        <img src="https://picsum.photos/400/300?random=1" alt="Art 1" class="rounded-lg mb-4 mx-auto">
+        <h3 class="text-xl font-semibold">Abstract Colors</h3>
+        <p class="text-gray-600">₹12,000</p>
+        <button 
+          onclick="gtag('event', 'art_interest', {art_title: 'Abstract Colors'})"
+          class="mt-3 px-4 py-2 bg-indigo-600 text-white rounded-lg">Enquire / Buy</button>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-4 text-center">
+        <img src="https://picsum.photos/400/300?random=2" alt="Art 2" class="rounded-lg mb-4 mx-auto">
+        <h3 class="text-xl font-semibold">Modern Landscape</h3>
+        <p class="text-gray-600">₹18,500</p>
+        <button 
+          onclick="gtag('event', 'art_interest', {art_title: 'Modern Landscape'})"
+          class="mt-3 px-4 py-2 bg-indigo-600 text-white rounded-lg">Enquire / Buy</button>
+      </div>
+
+      <div class="bg-white rounded-xl shadow p-4 text-center">
+        <img src="https://picsum.photos/400/300?random=3" alt="Art 3" class="rounded-lg mb-4 mx-auto">
+        <h3 class="text-xl font-semibold">Golden Impressions</h3>
+        <p class="text-gray-600">₹22,000</p>
+        <button 
+          onclick="gtag('event', 'art_interest', {art_title: 'Golden Impressions'})"
+          class="mt-3 px-4 py-2 bg-indigo-600 text-white rounded-lg">Enquire / Buy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enquiry Form -->
+  <section class="bg-gray-100 py-10">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Enquiry Form</h2>
+      <form id="enquiryForm" class="bg-white rounded-xl shadow p-6 space-y-4">
+        <div>
+          <label class="block text-gray-700">Full Name</label>
+          <input type="text" name="name" class="w-full p-2 border rounded-lg" required>
+        </div>
+        <div>
+          <label class="block text-gray-700">Email</label>
+          <input type="email" name="email" class="w-full p-2 border rounded-lg" required>
+        </div>
+        <div>
+          <label class="block text-gray-700">Message</label>
+          <textarea name="message" class="w-full p-2 border rounded-lg" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="px-6 py-2 bg-indigo-600 text-white rounded-lg">Submit Enquiry</button>
+      </form>
+      <p id="formResponse" class="mt-4 text-green-600 font-semibold hidden">Thank you! Your enquiry has been submitted.</p>
+    </div>
+  </section>
+
+  <script>
+    // Track form submit event
+    document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      gtag('event', 'form_submit', {
+        form_name: 'Enquiry Form'
+      });
+      document.getElementById('formResponse').classList.remove('hidden');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
